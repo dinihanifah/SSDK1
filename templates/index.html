@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link 
+    href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"
+    rel="stylesheet"
+    id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"/>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Prediksi Kualitas Winet</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-green-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3x1 font-bold mb-8">
+                Prediksi Kualitas Wine :
+            </h1>
+
+            <form
+                action="{{url_for('predict')}}"
+                method="post"
+                class="flex flex-col"
+                >
+                <label for="fixed_acidity" class="mb-2">fixed_acidity</label>
+                <input
+                    type="float"
+                    name="fixed_acidity"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="volatile_acidity" class="mb-2">volatile_acidity</label>
+                <input
+                    type="float"
+                    name="volatile_acidity"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="citric_acid" class="mb-2">citric_acid</label>
+                <input
+                    type="float"
+                    name="citric_acid"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="residual_sugar" class="mb-2">residual_sugar</label>
+                <input
+                    type="float"
+                    name="residual_sugar"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="chlorides" class="mb-2">chlorides</label>
+                <input
+                    type="float"
+                    name="chlorides"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="free_sulfur_dioxide" class="mb-2">free_sulfur_dioxide</label>
+                <input
+                    type="float"
+                    name="free_sulfur_dioxide"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="total_sulfur_dioxide" class="mb-2">total_sulfur_dioxide</label>
+                <input
+                    type="float"
+                    name="total_sulfur_dioxide"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="density" class="mb-2">density</label>
+                <input
+                    type="float"
+                    name="density"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="pH" class="mb-2">pH</label>
+                <input
+                    type="float"
+                    name="pH"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="sulphates" class="mb-2">sulphates</label>
+                <input
+                    type="float"
+                    name="sulphates"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="alcohol" class="mb-2">alcohol</label>
+                <input
+                    type="float"
+                    name="alcohol"
+                    placeholder=""
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-between
+                        align-center
+                        p-8
+                        p-4
+                        min-h-screen
+                        bg-gradient-to-r
+                        from-green-400
+                        to-blue-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                        PREDIKSI SAAT INI
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke.width="2"
+                            stroke.linecap="round"
+                            stroke.linejoin="round"
+                            class="ferher feather-arrow-right ml-4"
+                        >
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2x1 mb-8">
+                    Prediksi Kualitas Wine adalah
+                </h1>
+                <h2 class="text-5x1 font-bold">quality {{quality}}</h2>
+                {% if (quality) !=0 %}
+                <div class="mt-8">
+                    <p>fixed_acidity: {{fixed_acidity}}</p>
+                    <p>volatile_acidity: {{volatile_acidity}}</p>
+                    <p>citric_acid: {{citric_acid}}</p>
+                    <p>residual_sugar: {{residual_sugar}}</p>
+                    <p>chlorides: {{chlorides}}</p>
+                    <p>free_sulfur_dioxide: {{free_sulfur_dioxide}}</p>
+                    <p>total_sulfur_dioxide: {{total_sulfur_dioxide}}</p>
+                    <p>density: {{density}}</p>
+                    <p>pH: {{pH}}</p>
+                    <p>sulphates: {{sulphates}}</p>
+                    <p>alcohol: {{alcohol}}</p>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </body>
+</html>
